@@ -42,12 +42,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
 
                 const Text(
-                  '"Mataasnakahoy Automated Technology for Disaster Risk Reduction Alert System"',
+                  'LUWASA Inc.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 32, fontFamily: 'Bold', color: secondary),
                 ),
                 const SizedBox(height: 10),
                 TextFieldWidget(

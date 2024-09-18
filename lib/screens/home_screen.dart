@@ -1,5 +1,5 @@
 import 'package:alert_system/screens/auth/login_screen.dart';
-import 'package:alert_system/screens/tabs/announcement_tab.dart';
+import 'package:alert_system/screens/tabs/home_tab.dart';
 import 'package:alert_system/screens/tabs/notif_tab.dart';
 import 'package:alert_system/screens/tabs/weather_tab.dart';
 import 'package:alert_system/widgets/logout_widget.dart';
@@ -19,9 +19,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   static final List<Widget> _widgetOptions = <Widget>[
-    const AnnouncementTab(),
+    const HomeTab(),
     const WeatherTab(),
     const NotifTab(),
+    const SizedBox(),
   ];
 
   void _onItemTapped(int index) {
@@ -31,9 +32,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List labels = [
-    'Announcement',
-    'Weather',
+    'Home',
+    'Transactions',
     'Notifications',
+    'Profile',
   ];
 
   @override
@@ -42,9 +44,10 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: primary,
         title: TextWidget(
-          text: labels[_selectedIndex],
+          text: 'LUWASA Water Billing',
           fontSize: 18,
           color: Colors.white,
+          fontFamily: 'Bold',
         ),
         actions: [
           IconButton(
@@ -63,16 +66,20 @@ class _HomeScreenState extends State<HomeScreen> {
         unselectedItemColor: Colors.grey,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.info_outline),
-            label: 'Announcement',
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.cloud_queue),
-            label: 'Weather',
+            icon: Icon(Icons.receipt_long_outlined),
+            label: 'Transactions',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications_none_outlined),
             label: 'Notifications',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
