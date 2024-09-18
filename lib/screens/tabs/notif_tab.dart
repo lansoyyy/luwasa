@@ -25,7 +25,7 @@ class NotifTab extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextWidget(
-                      text: 'Content of Notifiactions',
+                      text: 'Content of Notifications',
                       fontSize: 18,
                     ),
                     TextWidget(

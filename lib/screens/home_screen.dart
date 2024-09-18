@@ -1,7 +1,8 @@
 import 'package:alert_system/screens/auth/login_screen.dart';
 import 'package:alert_system/screens/tabs/home_tab.dart';
 import 'package:alert_system/screens/tabs/notif_tab.dart';
-import 'package:alert_system/screens/tabs/weather_tab.dart';
+import 'package:alert_system/screens/tabs/profile_tab.dart';
+import 'package:alert_system/screens/tabs/transaction_tab.dart';
 import 'package:alert_system/widgets/logout_widget.dart';
 import 'package:alert_system/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -20,9 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   static final List<Widget> _widgetOptions = <Widget>[
     const HomeTab(),
-    const WeatherTab(),
+    const TransactionTab(),
     const NotifTab(),
-    const SizedBox(),
+    const ProfileTab(),
   ];
 
   void _onItemTapped(int index) {
@@ -49,17 +50,6 @@ class _HomeScreenState extends State<HomeScreen> {
           color: Colors.white,
           fontFamily: 'Bold',
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              logout(context, const LoginScreen());
-            },
-            icon: const Icon(
-              Icons.logout,
-              color: Colors.white,
-            ),
-          ),
-        ],
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
