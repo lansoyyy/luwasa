@@ -21,6 +21,9 @@ class _SignupScreenState extends State<SignupScreen> {
   final name = TextEditingController();
   final number = TextEditingController();
 
+  final houseno = TextEditingController();
+  final brgy = TextEditingController();
+  final meterid = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,6 +72,51 @@ class _SignupScreenState extends State<SignupScreen> {
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter a email';
+                    }
+
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 10),
+                TextFieldWidget(
+                  hasValidator: false,
+                  hint: 'Enter House Number',
+                  borderColor: Colors.grey,
+                  label: 'House Number',
+                  controller: houseno,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a house number';
+                    }
+
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 10),
+                TextFieldWidget(
+                  hasValidator: false,
+                  hint: 'Enter Baranggay',
+                  borderColor: Colors.grey,
+                  label: 'Baranggay',
+                  controller: brgy,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a Baranggay';
+                    }
+
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 10),
+                TextFieldWidget(
+                  hasValidator: false,
+                  hint: 'Enter Meter ID',
+                  borderColor: Colors.grey,
+                  label: 'Meter ID',
+                  controller: meterid,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your Meter ID';
                     }
 
                     return null;
@@ -155,7 +203,8 @@ class _SignupScreenState extends State<SignupScreen> {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: email.text, password: password.text);
 
-      addUser(name.text, email.text, number.text);
+      addUser(name.text, email.text, number.text, houseno.text, meterid.text,
+          brgy.text);
 
       // signup(nameController.text, numberController.text, addressController.text,
       //     emailController.text);
