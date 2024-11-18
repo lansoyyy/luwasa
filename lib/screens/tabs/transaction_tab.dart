@@ -154,40 +154,34 @@ class TransactionTab extends StatelessWidget {
                     return Column(
                       children: [
                         for (int i = 0; i < data.docs.length; i++)
-                          data.docs[i]['month'] != DateTime.now().month &&
-                                  data.docs[i]['day'] != DateTime.now().day
-                              ? Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: Card(
-                                    elevation: 3,
-                                    child: ListTile(
-                                      title: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          TextWidget(
-                                            text: 'Payment to LUWASA Inc.',
-                                            fontSize: 18,
-                                          ),
-                                          TextWidget(
-                                            text: DateFormat.yMMMd().format(data
-                                                .docs.first['date']
-                                                .toDate()),
-                                            fontSize: 12,
-                                          ),
-                                        ],
-                                      ),
-                                      trailing: TextWidget(
-                                        text: '-₱${data.docs[i]['amount']}.00',
-                                        fontSize: 12,
-                                        color: Colors.red,
-                                      ),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Card(
+                              elevation: 3,
+                              child: ListTile(
+                                title: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    TextWidget(
+                                      text: 'Payment to LUWASA Inc.',
+                                      fontSize: 18,
                                     ),
-                                  ),
-                                )
-                              : const SizedBox()
+                                    TextWidget(
+                                      text: DateFormat.yMMMd().format(
+                                          data.docs.first['date'].toDate()),
+                                      fontSize: 12,
+                                    ),
+                                  ],
+                                ),
+                                trailing: TextWidget(
+                                  text: '-₱${data.docs[i]['amount']}.00',
+                                  fontSize: 12,
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ),
+                          ),
                       ],
                     );
                   }),
